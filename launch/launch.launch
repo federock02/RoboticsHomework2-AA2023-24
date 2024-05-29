@@ -1,5 +1,5 @@
 <launch>
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find your_package_name)/rviz/gmapping_config.rviz"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find second_project)/rviz/gmapping_config.rviz"/>
 
   <node name="odom_to_tf" pkg="second_project" type="odom_to_tf" output="screen">
     <param name="root_frame" value="map"/>
