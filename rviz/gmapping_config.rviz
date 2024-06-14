@@ -1,5 +1,4 @@
-Panels:
-  []
+Panels: []
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -25,7 +24,7 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Alpha: 0.699999988079071
+    - Alpha: 0.7
       Class: rviz/Map
       Color Scheme: map
       Draw Behind: false

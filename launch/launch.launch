@@ -1,32 +1,38 @@
 <launch>
     <!-- Start odom_to_tf node with parameters -->
     <node name="odom_to_tf" pkg="second_project" type="odom_to_tf" output="screen">
-        <param name="child_frame" value="base_link" />
-        <param name="root_frame" value="odom" />
+        <param name="child_frame" value="/base_link" />
+        <param name="root_frame" value="/odom" />
         <remap from="input_odom" to="/ugv/odom" />
     </node>
 
+    <!-- lidar heder changed to base_link  -->
+    <node name="lidar_remap" pkg="second_project" type="lidar_remap" output="screen"/>
+
     <!-- Start gmapping node -->
-    <node name="slam_gmapping" pkg="gmapping" type="slam_gmapping" output="screen">
+    <node pkg="gmapping" type="slam_gmapping" name="gmapping" output="screen">
+        <remap from="scan" to="base_scan" />
         <param name="base_frame" value="base_link" />
         <param name="odom_frame" value="odom" />
         <param name="map_frame" value="map" />
         <param name="scan_topic" value="/scan"/>
         <param name="odom_topic" value="/ugv/odom"/>
+        <param name="xmax" value="5"/>
+        <param name="ymax" value="5"/>
+        <param name="xmin" value="-5"/>
+        <param name="ymin" value="-5"/>
+        <param name="delta" value="0.05"/>
     </node>
 
     <!-- Start pointcloud_to_laserscan node -->
     <node name="pointcloud_to_laserscan" pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" output="screen">
-        <param name="range_min" value="0.1" />
-        <param name="range_max" value="30.0" />
-        <param name="scan_time" value="0.1" />
-        <param name="transform_tolerance" value="0.01" />
-        <param name="min_height" value="-0.2" />
-        <param name="max_height" value="0.2" />
-        <remap from="cloud_in" to="/ugv/rslidar_points" />
-        <remap from="scan" to="/scan" />
+        <remap from="cloud_in" to="/ugv/rslidar_points"/>
+        <remap from="scan" to="/scan"/>
     </node>
 
     <!-- Start RViz with a specified configuration file -->
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find second_project)/rviz/gmapping_config.rviz" />
+
+    <!-- Simulated time -->
+    <param name="/use_sim_time" value="true"/>
 </launch>
