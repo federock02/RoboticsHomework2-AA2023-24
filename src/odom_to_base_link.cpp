@@ -4,13 +4,14 @@
 #include "geometry_msgs/TransformStamped.h"
 #include "tf/transform_datatypes.h" // Include the header file for TF transformations
 #include "tf/transform_broadcaster.h"
+#include "message_filters/subscriber.h"
 
 class OdomToTFConverter {
 public:
     OdomToTFConverter() {
 
         // Get the parameters from the parameter server
-        ros::NodeHandle private_nh("~");
+        private_nh = ros::NodeHandle("~");
         private_nh.getParam("child_frame", child_frame);
         private_nh.getParam("root_frame", root_frame);
 
@@ -20,7 +21,6 @@ public:
 
     // Callback function for the /input_odom topic
     void odomCallback(const nav_msgs::Odometry::ConstPtr& msg) {
-        static tf::TransformBroadcaster br;
         tf::Transform transform;
 
         // Set the translation and rotation values for the transform
@@ -34,12 +34,14 @@ public:
                  msg->pose.pose.orientation.z,
                  msg->pose.pose.orientation.w));
 
-        // Broadcast the transform
+        // Broadcast the transform with the same timestamp as the odometry message
         br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), root_frame, child_frame));
     }
 
 private:
     ros::NodeHandle n;
+    ros::NodeHandle private_nh;
+    tf::TransformBroadcaster br;
     ros::Subscriber sub_odom;
     std::string root_frame, child_frame;
 };
