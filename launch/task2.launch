@@ -1,8 +1,12 @@
 <launch>
-  <!-- Arguments for various configurations -->
   <arg name="base" default="scout_mini"/>
+
+  <!-- Files path-->
   <arg name="map_file" default="$(find second_project)/maps/map.yaml"/>
-  <arg name="world_file" default="$(find ssecond_project)/maps/stage/world.wld"/>
+  <arg name="world_file" default="$(find second_project)/maps/world.world"/>
+  <arg name="goal_file" default="$(find second_project)/waypoints.csv" />
+  
+  <!-- Initial position-->
   <arg name="initial_pose_x" default="0.0"/>
   <arg name="initial_pose_y" default="0.0"/>
   <arg name="initial_pose_a" default="0.0"/>
@@ -51,14 +55,11 @@
     <arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
   </include>
 
-  <!-- Parameter for the goal file -->
-    <arg name="goal_file" default="$(find second_project)/waypoints.csv" />
-
     <!-- Start the goal_publisher node -->
-    <node name="goal_publisher" pkg="your_package_name" type="goal_publisher_node" output="screen">
+    <node name="goal_publisher" pkg="second_project" type="goal_publisher" output="screen">
         <param name="goal_file" value="$(arg goal_file)" />
     </node>
 
   <!-- RViz Visualization -->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find second_project)/rviz/config.rviz"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find second_project)/rviz/config2.rviz"/>
 </launch>

@@ -24,7 +24,7 @@
     </node>
 
     <!-- Start RViz with a specified configuration file -->
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find second_project)/rviz/config.rviz" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find second_project)/rviz/config1.rviz" />
 
     <!-- Simulated time -->
     <param name="/use_sim_time" value="true"/>
