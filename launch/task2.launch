@@ -5,11 +5,12 @@
   <arg name="map_file" default="$(find second_project)/maps/map.yaml"/>
   <arg name="world_file" default="$(find second_project)/maps/world.world"/>
   <arg name="goal_file" default="$(find second_project)/waypoints.csv" />
-  
+
   <!-- Initial position-->
   <arg name="initial_pose_x" default="0.0"/>
   <arg name="initial_pose_y" default="0.0"/>
   <arg name="initial_pose_a" default="0.0"/>
+
   <arg name="odom_frame_id" default="odom"/>
   <arg name="global_frame_id" default="map"/>
 
@@ -21,23 +22,23 @@
     <remap from="base_scan" to="scan"/>
   </node>
 
-  <!-- Navigation Node -->
+  <!-- Navigation -->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
     <rosparam file="$(find second_project)/cfg/costmap_common_params.yaml" command="load" ns="global_costmap" />
-    <rosparam file="$(find second_project)/cfg/costmap_common_params.yaml" command="load" ns="local_costmap" />
-    <rosparam file="$(find second_project)/cfg/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find second_project)/cfg/costmap_common_params.yaml" command="load" ns="local_costmap" />   
+    <rosparam file="$(find second_project)/cfg/local_costmap_params.yaml" command="load" />   
     <rosparam file="$(find second_project)/cfg/global_costmap_params.yaml" command="load" />
     <rosparam file="$(find second_project)/cfg/dwa_local_planner_params.yaml" command="load" />
-    <rosparam file="$(find second_project)/cfg/move_base_params.yaml" command="load" />
-    
-    <param name="base_global_planner" value="navfn/NavfnROS" />
+    <rosparam file="$(find second_project)/cfg/move_base_params.yaml" command="load" /> 
+
+    <param name="base_global_planner" value="navfn/NavfnROS" />  <!--   planner  navfn/NavfnROS alternative  carrot_planner/CarrotPlanner -->
     <param name="planner_frequency" value="1.0" />
-    <param name="planner_patience" value="5.0" />
-    
+    <param name="planner_patience" value="5.0" /> <!-- How long the planner will wait in seconds in an attempt to find a valid plan before space-clearing operations are performed.  -->
+
     <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
     <param name="controller_frequency" value="5.0" />
-    <param name="controller_patience" value="5.0" />
-    
+    <param name="controller_patience" value="5.0" /> <!-- How long the controller will wait in seconds without receiving a valid control before space-clearing operations are performed.  -->
+
     <param name="clearing_rotation_allowed" value="true"/> 
   </node>
 
@@ -47,7 +48,7 @@
   </node>
 
   <!-- AMCL -->
-  <include file="$(find second_project)/launch/amcl.launch">
+  <include file="$(find second_project)/launch/amcl.xml">
     <arg name="scan_topic" value="scan"/>
     <arg name="use_map_topic" value="true"/>
     <arg name="initial_pose_x" value="$(arg initial_pose_x)"/>
@@ -57,7 +58,7 @@
 
     <!-- Start the goal_publisher node -->
     <node name="goal_publisher" pkg="second_project" type="goal_publisher" output="screen">
-        <param name="goal_file" value="$(arg goal_file)" />
+      <param name="goal_file" value="$(arg goal_file)" />
     </node>
 
   <!-- RViz Visualization -->
