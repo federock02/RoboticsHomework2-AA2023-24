@@ -16,6 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
       dynamic_reconfigure
       move_base
       message_filters
+      move_base_msgs
 )
 
 ## Generate dynamic reconfigure config file
