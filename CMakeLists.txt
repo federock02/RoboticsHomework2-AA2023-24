@@ -13,6 +13,8 @@ find_package(catkin REQUIRED COMPONENTS
       pointcloud_to_laserscan
       rviz
       move_base
+      stage_ros
+      map_server
 )
 
 ## Declare a catkin package
