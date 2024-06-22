@@ -31,7 +31,7 @@ define floorplan model
 floorplan
 (
   name "map"
-  bitmap "map.png"
+  bitmap "map.pgm"
   size [ 10.0 10.0 2.0 ]
   pose [ 5.0  5.0 0.0 0.0 ]
 )

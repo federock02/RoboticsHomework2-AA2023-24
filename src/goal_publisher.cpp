@@ -78,7 +78,7 @@ int main(int argc, char** argv) {
     private_nh.param<std::string>("goal_file", goal_file, "waypoints.csv");
 
     // creating the GoalPublisher object, passing the goal file as a parameter, received from the parameter server
-    GoalPublisher goal_publisher(goal_file);
+    GoalPublisher goal_publisher("waypoints.csv");
 
     ros::spin();
     return 0;

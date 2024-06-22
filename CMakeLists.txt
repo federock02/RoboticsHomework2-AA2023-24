@@ -10,18 +10,9 @@ find_package(catkin REQUIRED COMPONENTS
       sensor_msgs
       tf
       nav_msgs
-      gmapping
       pointcloud_to_laserscan
       rviz
-      dynamic_reconfigure
       move_base
-      message_filters
-      move_base_msgs
-)
-
-## Generate dynamic reconfigure config file
-generate_dynamic_reconfigure_options(
-      cfg/lidar.cfg
 )
 
 ## Declare a catkin package
