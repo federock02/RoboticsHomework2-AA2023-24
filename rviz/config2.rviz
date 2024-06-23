@@ -15,7 +15,7 @@ Panels:
       - /2D Pose Estimate1
       - /2D Nav Goal1
     Name: Tool Properties
-    Splitter Ratio: 0.5886790156364441
+    Splitter Ratio: 0.6
   - Class: rviz/Views
     Expanded:
       - /Current View1
@@ -38,7 +38,7 @@ Visualization Manager:
       Color: 160; 160; 164
       Enabled: true
       Line Style:
-        Line Width: 0.029999999329447746
+        Line Width: 0.03
         Value: Lines
       Name: Grid
       Normal Cell Count: 0
@@ -88,7 +88,7 @@ Visualization Manager:
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.009999999776482582
+      Size (m): 0.01
       Style: Squares
       Topic: /scan
       Unreliable: false
@@ -116,7 +116,7 @@ Visualization Manager:
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.05000000074505806
+      Size (m): 0.05
       Style: Flat Squares
       Topic: /ir_scan
       Unreliable: false
@@ -144,7 +144,7 @@ Visualization Manager:
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.019999999552965164
+      Size (m): 0.02
       Style: Flat Squares
       Topic: /virtual_sensor_scan
       Unreliable: false
@@ -172,14 +172,14 @@ Visualization Manager:
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.03999999910593033
+      Size (m): 0.04
       Style: Flat Squares
       Topic: /mobile_base/sensors/bumper_pointcloud
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
-    - Alpha: 0.699999988079071
+    - Alpha: 0.7
       Class: rviz/Map
       Color Scheme: map
       Draw Behind: false
@@ -191,7 +191,7 @@ Visualization Manager:
       Value: true
     - Class: rviz/Group
       Displays:
-        - Alpha: 0.699999988079071
+        - Alpha: 0.7
           Class: rviz/Map
           Color Scheme: costmap
           Draw Behind: false
@@ -206,11 +206,11 @@ Visualization Manager:
           Class: rviz/Path
           Color: 0; 12; 255
           Enabled: true
-          Head Diameter: 0.30000001192092896
-          Head Length: 0.20000000298023224
-          Length: 0.30000001192092896
+          Head Diameter: 0.3
+          Head Length: 0.2
+          Length: 0.3
           Line Style: Lines
-          Line Width: 0.029999999329447746
+          Line Width: 0.03
           Name: Planner
           Offset:
             X: 0
@@ -219,9 +219,9 @@ Visualization Manager:
           Pose Color: 255; 85; 255
           Pose Style: None
           Queue Size: 10
-          Radius: 0.029999999329447746
-          Shaft Diameter: 0.10000000149011612
-          Shaft Length: 0.10000000149011612
+          Radius: 0.03
+          Shaft Diameter: 0.1
+          Shaft Length: 0.1
           Topic: /move_base/DWAPlannerROS/local_plan
           Unreliable: false
           Value: true
@@ -229,7 +229,7 @@ Visualization Manager:
       Name: Local Planning
     - Class: rviz/Group
       Displays:
-        - Alpha: 0.4000000059604645
+        - Alpha: 0.4
           Class: rviz/Map
           Color Scheme: costmap
           Draw Behind: true
@@ -244,11 +244,11 @@ Visualization Manager:
           Class: rviz/Path
           Color: 255; 0; 0
           Enabled: true
-          Head Diameter: 0.30000001192092896
-          Head Length: 0.20000000298023224
-          Length: 0.30000001192092896
+          Head Diameter: 0.3
+          Head Length: 0.2
+          Length: 0.3
           Line Style: Lines
-          Line Width: 0.029999999329447746
+          Line Width: 0.03
           Name: Planner
           Offset:
             X: 0
@@ -257,9 +257,9 @@ Visualization Manager:
           Pose Color: 255; 85; 255
           Pose Style: None
           Queue Size: 10
-          Radius: 0.029999999329447746
-          Shaft Diameter: 0.10000000149011612
-          Shaft Length: 0.10000000149011612
+          Radius: 0.03
+          Shaft Diameter: 0.1
+          Shaft Length: 0.1
           Topic: /move_base/NavfnROS/plan
           Unreliable: false
           Value: true
@@ -267,33 +267,33 @@ Visualization Manager:
       Name: Global Planning
     - Alpha: 1
       Axes Length: 1
-      Axes Radius: 0.10000000149011612
+      Axes Radius: 0.1
       Class: rviz/Pose
       Color: 255; 25; 0
       Enabled: true
-      Head Length: 0.20000000298023224
-      Head Radius: 0.10000000149011612
+      Head Length: 0.2
+      Head Radius: 0.1
       Name: Pose (move_base)
       Queue Size: 10
       Shaft Length: 1
-      Shaft Radius: 0.05000000074505806
+      Shaft Radius: 0.05
       Shape: Arrow
       Topic: /move_base/current_goal
       Unreliable: false
       Value: true
     - Alpha: 1
-      Arrow Length: 0.20000000298023224
-      Axes Length: 0.30000001192092896
-      Axes Radius: 0.009999999776482582
+      Arrow Length: 0.2
+      Axes Length: 0.3
+      Axes Radius: 0.01
       Class: rviz/PoseArray
       Color: 0; 192; 0
       Enabled: true
-      Head Length: 0.07000000029802322
-      Head Radius: 0.029999999329447746
+      Head Length: 0.07
+      Head Radius: 0.03
       Name: ParticleCloud
       Queue Size: 10
-      Shaft Length: 0.23000000417232513
-      Shaft Radius: 0.009999999776482582
+      Shaft Length: 0.23
+      Shaft Radius: 0.01
       Shape: Arrow (Flat)
       Topic: /particlecloud
       Unreliable: false
@@ -319,14 +319,14 @@ Visualization Manager:
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.009999999776482582
+      Size (m): 0.01
       Style: Points
       Topic: /move_base/DWAPlannerROS/cost_cloud
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
       Value: false
-    - Alpha: 0.699999988079071
+    - Alpha: 0.7
       Class: rviz/Map
       Color Scheme: map
       Draw Behind: false
@@ -336,7 +336,7 @@ Visualization Manager:
       Unreliable: false
       Use Timestamp: false
       Value: false
-    - Alpha: 0.699999988079071
+    - Alpha: 0.7
       Class: rviz/Map
       Color Scheme: map
       Draw Behind: false
@@ -368,7 +368,7 @@ Visualization Manager:
       Hide Inactive Objects: true
     - Class: rviz/Select
     - Class: rviz/SetInitialPose
-      Theta std deviation: 0.2617993950843811
+      Theta std deviation: 0.26
       Topic: /initialpose
       X std deviation: 0.5
       Y std deviation: 0.5
@@ -381,17 +381,17 @@ Visualization Manager:
       Angle: 0
       Class: rviz/TopDownOrtho
       Enable Stereo Rendering:
-        Stereo Eye Separation: 0.05999999865889549
+        Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Invert Z Axis: false
       Name: Current View
-      Near Clip Distance: 0.009999999776482582
-      Scale: 32.82472610473633
+      Near Clip Distance: 0.01
+      Scale: 32.8247
       Target Frame: base_link
-      X: 9.100728988647461
-      Y: -6.567544460296631
+      X: 9.1
+      Y: -6.5675
     Saved: ~
 Window Geometry:
   Displays:
